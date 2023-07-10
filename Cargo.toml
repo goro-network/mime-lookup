@@ -1,0 +1,30 @@
+[package]
+name = "mime-lookup"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+aarch64 = ["blake3/neon"]
+
+[dependencies]
+actix-cors = { version = "0.6.4", features = ["draft-private-network-access"] }
+actix-http = "3.3.1"
+actix-web = { version = "4.3.1", default-features = false, features = ["macros"] }
+anyhow = "1.0.71"
+blake3 = "1.4.0"
+csv = "1.2.2"
+env_logger = "0.10.0"
+futures = "0.3.28"
+hex = { version = "0.4.3", features = ["serde"] }
+log = { version = "0.4.19", features = [
+    "max_level_debug",
+    "release_max_level_info",
+    "serde",
+    "std",
+] }
+mimalloc = { version = "0.1.37", default-features = false, features = ["override"] }
+reqwest = { version = "0.11.18", default-features = false, features = ["async-compression", "mime_guess", "multipart", "serde_json", "rustls", "rustls-tls", "rustls-native-certs", "rustls-tls-native-roots"] }
+serde = { version = "1.0.166", features = ["derive"] }
+serde_json = { version = "1.0.100", features = ["preserve_order"] }
+tokio = { version = "1.29.1", features = ["full"] }
