@@ -201,9 +201,7 @@ impl MimeInfoInner {
     }
 
     fn get_hash_by_mime(&self, mime_str: &str) -> Option<String> {
-        self.mime_to_hash_map
-            .get(mime_str)
-            .map(|hash_bytes| hex::encode(hash_bytes))
+        self.mime_to_hash_map.get(mime_str).map(hex::encode)
     }
 }
 
